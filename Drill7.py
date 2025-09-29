@@ -36,7 +36,9 @@ class Ball:
             self.image = load_image('ball21x21.png')
         elif balltype == 2:
             self.image = load_image('ball41x41.png')
-
+        self.x = random.randint(100,700)
+        self.y = 599
+        self.speed = random.randint(4,9)
 
 # Game object class here
 def handle_events():
