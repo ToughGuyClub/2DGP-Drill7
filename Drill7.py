@@ -38,7 +38,12 @@ class Ball:
             self.image = load_image('ball41x41.png')
         self.x = random.randint(100,700)
         self.y = 599
-        self.speed = random.randint(4,9)
+        self.speed = random.randint(4,15)
+    def update(self):
+        self.y -= self.speed
+    def draw(self):
+        self.image.draw(self.x,self.y)
+
 
 # Game object class here
 def handle_events():
@@ -71,6 +76,8 @@ def reset_world():
     team = [Boy() for _ in range(11)] #팀을 만들고 팀을 월드에 추가
     world+=team
 
+    ball = [Ball() for _ in range(20)]
+    world+=ball
 
 
 
