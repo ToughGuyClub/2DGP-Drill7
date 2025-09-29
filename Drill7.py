@@ -29,21 +29,13 @@ class Boy:
         self.frame = (self.frame+1)%8
         pass
 
-class Zombie:
+class Ball:
     def __init__(self):
-        self.image = load_image('zombie_run_animation.png')
-        self.x, self.y =100,170
-        self.frame = 0
-
-    def update(self):
-        self.x += 5
-        self.frame = (self.frame + 1) % 10
-
-    def draw(self):
-        frame_width = self.image.w//10
-        frame_height = self.image.h
-        self.image.clip_draw(self.frame*frame_width,0,frame_width,frame_height,
-                                self.x,self.y,frame_width//2,frame_height//2)
+        balltype = random.randint(1,2)
+        if balltype ==1:
+            self.image = load_image('ball21x21.png')
+        elif balltype == 2:
+            self.image = load_image('ball41x41.png')
 
 
 # Game object class here
@@ -77,8 +69,8 @@ def reset_world():
     team = [Boy() for _ in range(11)] #팀을 만들고 팀을 월드에 추가
     world+=team
 
-    zombie = Zombie()
-    world.append(zombie)
+
+
 
 reset_world()
 
